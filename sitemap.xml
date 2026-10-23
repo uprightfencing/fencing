@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://uprightfencing.com/</loc>
     <lastmod>2026-08-20</lastmod>
@@ -26,9 +26,20 @@
   </url>
   <url>
     <loc>https://uprightfencing.com/aluminum-fencing.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://uprightfencing.com/images/1200_black-aluminum-fence-backyard-oahu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_black-aluminum-fence-rock-wall-stairs-oahu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_aluminum-pool-fence-gate-oahu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_black-aluminum-fence-on-lava-rock-wall-oahu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_aluminum-fence-pedestrian-gate-rock-wall-hawaii.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_bronze-aluminum-fence-rock-wall-oahu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_aluminum-stair-railing-rock-wall-hawaii.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_aluminum-driveway-slide-gate-oahu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_aluminum-walkway-gate-apartment-oahu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_white-aluminum-railing-condo-honolulu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://uprightfencing.com/images/600_commercial-aluminum-fence-curved-top-oahu.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://uprightfencing.com/chain-link-fencing.html</loc>
