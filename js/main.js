@@ -190,6 +190,25 @@
           );
         });
 
+        // Timeline: draw the line, then pop in each milestone
+        gsap.utils.toArray('.timeline').forEach(function (timeline) {
+          var tl = gsap.timeline({
+            scrollTrigger: { trigger: timeline, start: 'top 80%', once: true }
+          });
+          tl.fromTo(timeline, { '--progress': 0 }, { '--progress': 1, duration: 1.2, ease: 'power2.inOut' })
+            .from(timeline.querySelectorAll('.timeline-item'), {
+              opacity: 0, y: 30, duration: 0.6, stagger: 0.2, ease: 'back.out(1.6)'
+            }, '-=0.9');
+        });
+
+        // Zoom-in split images: gentle zoom as they reveal
+        gsap.utils.toArray('.split-image.zoom-in img').forEach(function (img) {
+          gsap.from(img, {
+            scale: 1.08, duration: 1.4, ease: 'power2.out',
+            scrollTrigger: { trigger: img, start: 'top 85%', once: true }
+          });
+        });
+
         // Gallery items stagger
         ScrollTrigger.batch('.gallery-item', {
           start: 'top 90%',
