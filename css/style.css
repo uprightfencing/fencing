@@ -1477,3 +1477,51 @@ p { margin-bottom: 1rem; }
 .area-links a:hover {
   background: var(--gold);
 }
+
+/* --- Google reviews (Home) --- */
+.review-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.review-card {
+  flex: 1 1 320px;
+  max-width: 370px;
+  margin: 0;
+  padding: 1.75rem;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-top: 4px solid var(--gold);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.review-stars {
+  color: var(--gold);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+}
+
+.review-card blockquote {
+  margin: 0 0 1rem;
+  color: var(--gray-600);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.review-card figcaption {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+}
+
+.review-card figcaption strong {
+  color: var(--black);
+}
