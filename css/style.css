@@ -1442,3 +1442,38 @@ p { margin-bottom: 1rem; }
 .split-image.zoom-in img {
   box-shadow: none;
 }
+
+.footer-nap {
+  font-style: normal;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--gray-300);
+  margin-top: 1rem;
+}
+
+.footer-nap a {
+  color: var(--gold);
+}
+
+/* --- Service area links (Home) --- */
+.area-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.area-links a {
+  padding: 0.6rem 1.25rem;
+  border: 2px solid var(--gold);
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--black);
+  transition: var(--transition);
+}
+
+.area-links a:hover {
+  background: var(--gold);
+}
