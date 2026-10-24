@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/1600_black-aluminum-fence-landscaped-yard-oahu.jpg" fetchpriority="high">
   <link rel="stylesheet" href="css/style.css">
 
   <!-- LocalBusiness Schema -->
@@ -58,7 +59,9 @@
       { "@type": "City", "name": "Aiea" },
       { "@type": "City", "name": "Honolulu" },
       { "@type": "City", "name": "Kailua" },
-      { "@type": "City", "name": "Kaneohe" }
+      { "@type": "City", "name": "Kaneohe" },
+      { "@type": "City", "name": "Wahiawa" },
+      { "@type": "Place", "name": "North Shore, Oahu" }
     ],
     "foundingDate": "1995",
     "description": "Licensed fence contractor serving Oahu since 1995. Specializing in vinyl, aluminum, chain link, wood fencing and custom gates.",
@@ -66,7 +69,8 @@
     "openingHours": "Mo-Fr 08:00-16:00",
     "sameAs": [
       "https://www.facebook.com/689388351118284",
-      "https://www.instagram.com/uprightfencinghawaii/"
+      "https://www.instagram.com/uprightfencinghawaii/",
+      "https://www.google.com/search?kgmid=/g/1t_tkhss"
     ],
     "hasCredential": {
       "@type": "EducationalOccupationalCredential",
@@ -204,7 +208,7 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <img class="hero-bg" src="images/1600_black-aluminum-fence-landscaped-yard-oahu.jpg" alt="Black aluminum fence around a landscaped yard on Oahu, installed by Upright Fencing Hawaii" width="1600" height="1067" loading="eager">
+      <img class="hero-bg" src="images/1600_black-aluminum-fence-landscaped-yard-oahu.jpg" alt="Black aluminum fence around a landscaped yard on Oahu, installed by Upright Fencing Hawaii" width="1600" height="1067" loading="eager" fetchpriority="high">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <img src="images/logo-no-bg.png" alt="Upright Fencing Hawaii LLC" class="hero-logo" width="360" height="139" loading="eager">
@@ -411,32 +415,42 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Google Reviews -->
     <section class="section">
-      <div class="container">
-        <div class="text-center" style="margin-bottom: 3rem;">
-          <p class="section-label">Testimonials</p>
-          <h2 class="section-title centered">What Our Customers Say</h2>
+      <div class="container text-center">
+        <p class="section-label">Reviews</p>
+        <h2 class="section-title centered">What Our Customers Say</h2>
+        <p class="section-subtitle centered">Read what Oahu homeowners, builders, and businesses say about working with Upright Fencing Hawaii.</p>
+        <div class="review-grid">
+          <figure class="review-card reveal">
+            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>I had my fence done by Upright Fencing a few years ago during COVID and loved the work they did, the customer service, and especially loved the cost. I didn't realize how great the quality of their work was until these last two storms hit. Both neighbors on my right and my left had to put up wood planks to keep their fences sturdy. We saw one of them swaying and partially fall down during the storm. My fence.....did not move an inch! Definitely recommend Upright for quality fencing work at a great price!!!</blockquote>
+            <figcaption><strong>Deshana P.</strong> &middot; Google review, Sep 2026</figcaption>
+          </figure>
+          <figure class="review-card reveal">
+            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>Highly recommended!! The whole process was smooth, from Quadry confirming my info once she received my quote request to Monika coming out to check the site. I wanted them use my existing panels and rails but I did not have enough for the whole job, she was really helpful with the pricing and explaining the needs for the job. Then Lindy coming out with the 2man crew, Trey and Don, to start the job. Don and Trey were really helpful and patient with all the questions I asked about the install. They were quick and efficient, the job was slated for 5 days, they finished in 4. They made sure the area was clean and orderly after each day. Lindy was understanding when I had questions once the job was started concerning the 2 different types of materials being used. All around a great team and a great experience working with them.</blockquote>
+            <figcaption><strong>M. W.</strong> &middot; Google review, Apr 2025</figcaption>
+          </figure>
+          <figure class="review-card reveal">
+            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>Upright Fencing did a terrific job for us. Everyone was very easy to work with and friendly and concerned about our satisfaction. Monika started everything off with her estimate and understanding our needs. Our changes to her proposal was handled with ease. Trey and Don did a very good job and handled the hard work easily. David supervised and came by every work day. David responded very quickly and did a good job adjusting our fence. Quadry, in the office, was very pleasant to speak with and very professional. Very satisfied with the job Upright Fencing did.</blockquote>
+            <figcaption><strong>Richie A.</strong> &middot; Google review, Mar 2025</figcaption>
+          </figure>
+          <figure class="review-card reveal">
+            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>We are very pleased of our new security fence installed by Upright Fencing Hawaii, LLC. All together great service from getting estimates from Monika, great Customer Service from Quadry-Lynn, great on-the site job performance from David, Garyson and Paul. I was very detailed how I wanted the fence installed and the &quot;Upright Fencing Crew&quot; followed my instructions. My family and I would like to say THANK YOU for a job well done. I highly recommend Upright Fencing Hawaii.</blockquote>
+            <figcaption><strong>Bobbee B.</strong> &middot; Google review, Oct 2024</figcaption>
+          </figure>
+          <figure class="review-card reveal">
+            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>Trey and Paul were totally awesome! They were very respectful to us. They arrived at the property on time, they got everything set up then started working non stop..I would hire them again if I needed anymore work done .. I placed my trust in them and was so very happy with the completed job! Thank you, Trey and Paul!</blockquote>
+            <figcaption><strong>Alex S.</strong> &middot; Google review, Sep 2024</figcaption>
+          </figure>
         </div>
-        <div class="grid-3">
-          <div class="testimonial-card reveal">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-text">"Upright Fencing did an outstanding job on our vinyl privacy fence. The crew was professional, showed up on time, and the finished product looks amazing. Highly recommend them to anyone on Oahu."</p>
-            <p class="testimonial-author">Kapolei Homeowner</p>
-            <p class="testimonial-location">Kapolei, HI</p>
-          </div>
-          <div class="testimonial-card reveal">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-text">"We needed a chain link fence for our commercial property and Upright Fencing delivered. Fair pricing, quality materials, and they handled the permits. Will use them again."</p>
-            <p class="testimonial-author">Business Owner</p>
-            <p class="testimonial-location">Ewa Beach, HI</p>
-          </div>
-          <div class="testimonial-card reveal">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-text">"The custom aluminum gate they built for us is exactly what we wanted. You can tell they take pride in their work. The whole process from estimate to installation was smooth."</p>
-            <p class="testimonial-author">Residential Customer</p>
-            <p class="testimonial-location">Mililani, HI</p>
-          </div>
+        <div class="cta-buttons" style="justify-content: center; margin-top: 2rem;">
+          <a href="https://share.google/J9SVWbuzYQFS9GzNT" class="btn btn-primary" target="_blank" rel="noopener">Read Our Google Reviews</a>
+          <a href="https://share.google/J9SVWbuzYQFS9GzNT" class="btn btn-outline" target="_blank" rel="noopener">Leave Us a Review</a>
         </div>
       </div>
     </section>
@@ -529,48 +543,8 @@
       </div>
     </section>
 
-    <!-- Google Reviews -->
-    <section class="section">
-      <div class="container text-center">
-        <p class="section-label">Reviews</p>
-        <h2 class="section-title centered">What Our Customers Say</h2>
-        <p class="section-subtitle centered">Read what Oahu homeowners, builders, and businesses say about working with Upright Fencing Hawaii.</p>
-        <div class="review-grid">
-          <figure class="review-card reveal">
-            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>I had my fence done by Upright Fencing a few years ago during COVID and loved the work they did, the customer service, and especially loved the cost. I didn't realize how great the quality of their work was until these last two storms hit. Both neighbors on my right and my left had to put up wood planks to keep their fences sturdy. We saw one of them swaying and partially fall down during the storm. My fence.....did not move an inch! Definitely recommend Upright for quality fencing work at a great price!!!</blockquote>
-            <figcaption><strong>Deshana P.</strong> &middot; Google review, Sep 2026</figcaption>
-          </figure>
-          <figure class="review-card reveal">
-            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>Highly recommended!! The whole process was smooth, from Quadry confirming my info once she received my quote request to Monika coming out to check the site. I wanted them use my existing panels and rails but I did not have enough for the whole job, she was really helpful with the pricing and explaining the needs for the job. Then Lindy coming out with the 2man crew, Trey and Don, to start the job. Don and Trey were really helpful and patient with all the questions I asked about the install. They were quick and efficient, the job was slated for 5 days, they finished in 4. They made sure the area was clean and orderly after each day. Lindy was understanding when I had questions once the job was started concerning the 2 different types of materials being used. All around a great team and a great experience working with them.</blockquote>
-            <figcaption><strong>M. W.</strong> &middot; Google review, Apr 2025</figcaption>
-          </figure>
-          <figure class="review-card reveal">
-            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>Upright Fencing did a terrific job for us. Everyone was very easy to work with and friendly and concerned about our satisfaction. Monika started everything off with her estimate and understanding our needs. Our changes to her proposal was handled with ease. Trey and Don did a very good job and handled the hard work easily. David supervised and came by every work day. David responded very quickly and did a good job adjusting our fence. Quadry, in the office, was very pleasant to speak with and very professional. Very satisfied with the job Upright Fencing did.</blockquote>
-            <figcaption><strong>Richie A.</strong> &middot; Google review, Mar 2025</figcaption>
-          </figure>
-          <figure class="review-card reveal">
-            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>We are very pleased of our new security fence installed by Upright Fencing Hawaii, LLC. All together great service from getting estimates from Monika, great Customer Service from Quadry-Lynn, great on-the site job performance from David, Garyson and Paul. I was very detailed how I wanted the fence installed and the &quot;Upright Fencing Crew&quot; followed my instructions. My family and I would like to say THANK YOU for a job well done. I highly recommend Upright Fencing Hawaii.</blockquote>
-            <figcaption><strong>Bobbee B.</strong> &middot; Google review, Oct 2024</figcaption>
-          </figure>
-          <figure class="review-card reveal">
-            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>Trey and Paul were totally awesome! They were very respectful to us. They arrived at the property on time, they got everything set up then started working non stop..I would hire them again if I needed anymore work done .. I placed my trust in them and was so very happy with the completed job! Thank you, Trey and Paul!</blockquote>
-            <figcaption><strong>Alex S.</strong> &middot; Google review, Sep 2024</figcaption>
-          </figure>
-        </div>
-        <div class="cta-buttons" style="justify-content: center; margin-top: 2rem;">
-          <a href="https://share.google/J9SVWbuzYQFS9GzNT" class="btn btn-primary" target="_blank" rel="noopener">Read Our Google Reviews</a>
-          <a href="https://share.google/J9SVWbuzYQFS9GzNT" class="btn btn-outline" target="_blank" rel="noopener">Leave Us a Review</a>
-        </div>
-      </div>
-    </section>
-
     <!-- Service Areas -->
-    <section class="section section-alt">
+    <section class="section">
       <div class="container text-center">
         <p class="section-label">Service Areas</p>
         <h2 class="section-title centered">Installing Fences Across Oahu</h2>
