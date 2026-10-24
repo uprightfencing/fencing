@@ -250,3 +250,13 @@
 
   });
 })();
+
+document.addEventListener('click', function (e) {
+  var link = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+  if (!link || typeof gtag !== 'function') return;
+  gtag('event', 'conversion', {
+    'send_to': 'AW-774245879/Q5hlCJ_38KcdEPebmPEC',
+    'value': 1.0,
+    'currency': 'USD'
+  });
+});
