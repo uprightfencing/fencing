@@ -121,19 +121,13 @@
     if (chai.disabled && color.value === 'Chai Gray') color.value = '';
   }
 
-  // 3 1/2" rails do not stretch to 8' wide; only 6" rails do.
   function updatePanelRail(line) {
     var rail = line.querySelector('select[data-rail]');
     var height = line.querySelector('select[data-panel-height]');
     if (!rail || !height) return;
     var short = rail.value.indexOf('3 1/2') !== -1;
-    Array.prototype.forEach.call(height.options, function (option) {
-      if (option.value.indexOf("x 8' W") === -1) return;
-      option.disabled = short;
-      if (short && option.selected) height.value = '';
-    });
-    var hint = line.querySelector('.order-rail-hint');
-    if (hint) hint.hidden = !short;
+    var insertNote = line.querySelector('.order-insert-note');
+    if (insertNote) insertNote.hidden = !(short && height.value.indexOf("x 8' W") !== -1);
     // Middle rail applies only to 5' and 6' high panels with the 3 1/2" rail.
     var middleRow = line.querySelector('.order-middle-row');
     var middleNote = line.querySelector('.order-middle-note');
@@ -239,9 +233,19 @@
     render();
   }
 
+  var THANKS_KEY = 'uprightOrderCopy';
+  var thanksClosing = false;
+
+  function openThanks(copy) {
+    document.getElementById('order-thanks-list').textContent = copy;
+    try { sessionStorage.setItem(THANKS_KEY, copy); } catch (err) { /* Private browsing. */ }
+    if (!thanks.open) thanks.showModal();
+    thanks.focus();
+  }
+
   function itemizedList(list) {
-    return list.map(function (row, i) {
-      return (i + 1) + '. ' + row.item + '\n     Quantity: ' + row.qty +
+    return list.map(function (row) {
+      return row.item + '\n     Quantity: ' + row.qty +
         row.picks.map(function (pick) { return '\n     ' + pick; }).join('');
     }).join('\n\n');
   }
@@ -290,9 +294,8 @@
       .then(function (response) { return response.json(); })
       .then(function (result) {
         if (!result.success) throw new Error(result.message || 'Not sent');
-        document.getElementById('order-thanks-list').textContent = customerCopy;
         clearForm();
-        thanks.showModal();
+        openThanks(customerCopy);
       })
       .catch(function () {
         showError('Sorry, your order did not go through. Please try again or call us at (808) 678-0331.');
@@ -308,7 +311,17 @@
   });
 
   document.getElementById('order-thanks-close').addEventListener('click', function () {
+    thanksClosing = true;
+    try { sessionStorage.removeItem(THANKS_KEY); } catch (err) { /* Private browsing. */ }
     thanks.close();
+  });
+
+  // Escape does not dismiss it; customers choose Print / Save or Close.
+  thanks.addEventListener('cancel', function (e) { e.preventDefault(); });
+  thanks.addEventListener('close', function () {
+    if (thanksClosing) { thanksClosing = false; return; }
+    if (!thanks.open) thanks.showModal();
+    thanks.focus();
   });
 
   // Browsers can restore typed quantities when someone comes back to the page.
@@ -318,6 +331,12 @@
     checkDate();
     render();
   });
+  // If the page reloaded before they closed it, show their copy again.
+  try {
+    var savedCopy = sessionStorage.getItem(THANKS_KEY);
+    if (savedCopy) openThanks(savedCopy);
+  } catch (err) { /* Private browsing. */ }
+
   updateFulfillment();
   render();
 

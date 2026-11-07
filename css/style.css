@@ -1675,3 +1675,6 @@ p { margin-bottom: 1rem; }
 .order-payment-notice { margin: 1.25rem auto 0.5rem; }
 .order-payment-notice a, .order-thanks-payment a { font-weight: 600; white-space: nowrap; }
 .order-thanks .order-thanks-payment { font-size: 0.85rem; margin-bottom: 1.25rem; }
+
+/* Thank-you pop-up takes focus itself */
+.order-thanks:focus { outline: none; }
