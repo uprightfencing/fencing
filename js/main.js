@@ -261,6 +261,33 @@ document.addEventListener('click', function (e) {
   });
 });
 
+/* --- Phone menu: Services list opens on tap --- */
+(function () {
+  'use strict';
+
+  var sub = document.querySelector('.mobile-menu .mobile-sub');
+  var link = sub ? sub.previousElementSibling : null;
+  if (!link || link.tagName !== 'A') return;
+
+  var allServices = document.createElement('a');
+  allServices.href = link.getAttribute('href');
+  allServices.textContent = 'All Services';
+  sub.insertBefore(allServices, sub.firstChild);
+
+  var toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'mobile-sub-toggle';
+  toggle.textContent = link.textContent;
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.addEventListener('click', function () {
+    var open = sub.hidden;
+    sub.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  sub.hidden = true;
+  link.parentNode.replaceChild(toggle, link);
+})();
+
 /* --- Installable app --- */
 (function () {
   'use strict';
@@ -272,12 +299,11 @@ document.addEventListener('click', function (e) {
   }
 
   var installed = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-  var footer = document.querySelector('.footer-brand');
-  if (installed || !footer) return;
+  if (installed) return;
 
   var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  var button = null;
+  var buttons = [];
   var installEvent = null;
 
   function showIOSSteps() {
@@ -298,9 +324,14 @@ document.addEventListener('click', function (e) {
     dialog.showModal();
   }
 
-  function showButton() {
-    if (button) return;
-    button = document.createElement('button');
+  function removeButtons() {
+    buttons.forEach(function (button) { button.remove(); });
+    buttons = [];
+  }
+
+  function addButton(place) {
+    if (!place) return;
+    var button = document.createElement('button');
     button.type = 'button';
     button.className = 'app-install-btn';
     button.textContent = 'Get the App';
@@ -308,11 +339,19 @@ document.addEventListener('click', function (e) {
       if (installEvent) {
         installEvent.prompt();
         installEvent = null;
+        removeButtons();
       } else if (isIOS) {
         showIOSSteps();
       }
     });
-    footer.appendChild(button);
+    place.appendChild(button);
+    buttons.push(button);
+  }
+
+  function showButton() {
+    if (buttons.length) return;
+    addButton(document.querySelector('.footer-brand'));
+    addButton(document.querySelector('.mobile-menu-cta'));
   }
 
   window.addEventListener('beforeinstallprompt', function (e) {
@@ -321,9 +360,7 @@ document.addEventListener('click', function (e) {
     showButton();
   });
 
-  window.addEventListener('appinstalled', function () {
-    if (button) button.remove();
-  });
+  window.addEventListener('appinstalled', removeButtons);
 
   if (isIOS) showButton();
 })();

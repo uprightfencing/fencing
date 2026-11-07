@@ -1697,3 +1697,14 @@ p { margin-bottom: 1rem; }
 .app-steps h2 { margin-bottom: 0.75rem; font-size: 1.25rem; }
 .app-steps ol { margin: 0 0 1.25rem 1.25rem; list-style: decimal; }
 .app-steps li { margin-bottom: 0.5rem; }
+
+/* Phone menu: tap-to-open Services, Send a Message, Get the App */
+.mobile-sub-toggle { display: flex; line-height: 1.6; justify-content: space-between; align-items: center; width: 100%; padding: 0.75rem 0; font-family: var(--font-heading); font-size: 1.1rem; font-weight: 500; text-align: left; color: var(--white); background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,0.1); cursor: pointer; }
+.mobile-sub-toggle::after { content: ""; width: 0.55rem; height: 0.55rem; margin-right: 0.3rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform var(--transition); }
+.mobile-sub-toggle[aria-expanded="true"]::after { transform: rotate(-135deg); }
+.mobile-sub-toggle:hover { color: var(--gold); }
+.mobile-menu-cta a.btn-outline { margin-top: 0.75rem; color: var(--gold-light); border: 2px solid var(--gold-light); }
+.mobile-menu-cta a.btn-outline:hover { color: var(--black); background: var(--gold-light); }
+.mobile-menu-cta .app-install-btn { width: 100%; margin-top: 0.5rem; padding: 0.75rem; text-align: center; text-decoration: underline; border: 0; }
+.mobile-menu-cta .app-install-btn:hover, .mobile-menu-cta .app-install-btn:focus-visible { color: var(--gold); background: transparent; }
+#send-message { scroll-margin-top: calc(var(--header-height) + 1rem); }
