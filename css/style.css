@@ -1684,3 +1684,7 @@ p { margin-bottom: 1rem; }
 .order-req-note { margin-bottom: 0.75rem; font-size: 0.875rem; color: var(--gray-600); }
 .order-name-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; }
 @media (max-width: 480px) { .order-name-row { grid-template-columns: minmax(0, 1fr); } }
+
+/* Order form: Blank or Routed required for posts and rails */
+.order-finish-required { margin-top: 0.3rem; font-size: 0.875rem; font-weight: 600; color: #b91c1c; }
+.order-finish-required[hidden], .order-req[hidden] { display: none; }

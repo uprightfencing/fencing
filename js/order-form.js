@@ -48,7 +48,7 @@
         byName[key].qty += qty;
         return;
       }
-      var row = { qty: qty, item: item, picks: picks, missing: missing, select: firstMissing };
+      var row = { qty: qty, item: item, picks: picks, missing: missing, select: firstMissing, routing: qtyInput.hasAttribute('data-routing') };
       if (!missing.length) byName[key] = row;
       list.push(row);
     });
@@ -57,6 +57,7 @@
 
   function render() {
     var list = chosen();
+    updateFinish(list);
     summary.textContent = '';
     if (!list.length) {
       var empty = document.createElement('li');
@@ -91,6 +92,17 @@
       summary.appendChild(li);
     });
     if (list.length && !list.some(function (row) { return row.missing.length; })) error.hidden = true;
+  }
+
+  // Blank or Routed is required only when the order has panels, rails or posts.
+  function needsFinish(list) {
+    return list.some(function (row) { return row.routing; });
+  }
+
+  function updateFinish(list) {
+    var required = needsFinish(list);
+    document.getElementById('order-finish-star').hidden = !required;
+    document.getElementById('order-finish-required').hidden = !required;
   }
 
   function showError(message, target) {
@@ -274,6 +286,10 @@
     }
     var finishes = [];
     finishBoxes.forEach(function (box) { if (box.checked) finishes.push(box.value); });
+    if (needsFinish(list) && !finishes.length) {
+      showError('Your order includes panels, rails or posts. Please check Blank, Routed or both.', finishBoxes[0]);
+      return;
+    }
     error.hidden = true;
     hidden.value = itemizedList(list);
 
