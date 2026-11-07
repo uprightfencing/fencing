@@ -930,37 +930,44 @@
               <ul id="order-summary" aria-live="polite"></ul>
             </div>
             <p class="order-error" id="order-error" role="alert" hidden>Please enter a quantity for at least one item.</p>
-            <div class="form-group">
-              <label for="order-name">Name</label>
-              <input type="text" id="order-name" name="name" placeholder="Your full name" autocomplete="name" required>
+            <p class="order-req-note"><span class="order-req" aria-hidden="true">*</span> Required</p>
+            <div class="order-name-row">
+              <div class="form-group">
+                <label for="order-first-name">First Name <span class="order-req" aria-hidden="true">*</span></label>
+                <input type="text" id="order-first-name" name="First Name" placeholder="First name" autocomplete="given-name" maxlength="60" pattern=".*\S.*" title="Please enter your first name." required>
+              </div>
+              <div class="form-group">
+                <label for="order-last-name">Last Name <span class="order-req" aria-hidden="true">*</span></label>
+                <input type="text" id="order-last-name" name="Last Name" placeholder="Last name" autocomplete="family-name" maxlength="60" pattern=".*\S.*" title="Please enter your last name." required>
+              </div>
             </div>
             <div class="form-group">
-              <label for="order-email">Email</label>
+              <label for="order-email">Email <span class="order-req" aria-hidden="true">*</span></label>
               <input type="email" id="order-email" name="email" placeholder="your@email.com" autocomplete="email" required>
             </div>
             <div class="form-group">
-              <label for="order-phone">Phone</label>
+              <label for="order-phone">Phone <span class="order-req" aria-hidden="true">*</span></label>
               <input type="tel" id="order-phone" name="phone" placeholder="(808) 555-1234" autocomplete="tel" required>
             </div>
             <fieldset class="order-choice">
-              <legend>Pick Up or Delivery</legend>
+              <legend>Pick Up or Delivery (optional)</legend>
               <div class="order-checks">
-                <label><input type="radio" name="Pick Up or Delivery" value="Pick Up" required> Pick Up</label>
-                <label><input type="radio" name="Pick Up or Delivery" value="Delivery" required> Delivery</label>
+                <label><input type="radio" name="Pick Up or Delivery" value="Pick Up"> Pick Up</label>
+                <label><input type="radio" name="Pick Up or Delivery" value="Delivery"> Delivery</label>
               </div>
               <p class="order-choice-note">Delivery will be a separate charge.</p>
             </fieldset>
             <div class="form-group" id="order-address-group" hidden>
-              <label for="order-address">Delivery Address</label>
-              <input type="text" id="order-address" name="Delivery Address" placeholder="Please enter your delivery address" autocomplete="street-address" disabled>
+              <label for="order-address">Delivery Address <span class="order-req" aria-hidden="true">*</span></label>
+              <input type="text" id="order-address" name="Delivery Address" placeholder="Please enter your delivery address" autocomplete="street-address" pattern=".*\S.*" title="Please enter your delivery address." disabled>
             </div>
             <div class="form-group">
-              <label for="order-date" id="order-date-label">Pick-Up Date</label>
-              <input type="date" id="order-date" name="Pick-Up Date" required>
+              <label for="order-date"><span id="order-date-label">Preferred Date</span> (optional)</label>
+              <input type="date" id="order-date" name="Preferred Date">
               <p class="order-choice-note" id="order-date-note">Our shop is open Monday to Friday.</p>
             </div>
             <fieldset class="order-choice" id="order-finish">
-              <legend>Blank or Routed</legend>
+              <legend>Blank or Routed (optional)</legend>
               <div class="order-checks">
                 <label><input type="checkbox" class="order-finish-box" value="Blank"> Blank</label>
                 <label><input type="checkbox" class="order-finish-box" value="Routed"> Routed</label>
@@ -968,8 +975,8 @@
               <p class="order-choice-note">All products are blank and routed specifically for your design.</p>
             </fieldset>
             <div class="form-group">
-              <label for="order-notes">Notes</label>
-              <textarea id="order-notes" name="message" placeholder="Anything else we should know, such as when you need the materials." rows="4" required></textarea>
+              <label for="order-notes">Notes (optional)</label>
+              <textarea id="order-notes" name="message" placeholder="Anything else we should know, such as when you need the materials." rows="4"></textarea>
             </div>
             <div class="order-disclaimer">
               <strong>Please note:</strong> Delivery is a separate charge. All products are blank and routed specifically for your design. All sales are final, and payment is required before your order is filled. We do not accept payments through this website.

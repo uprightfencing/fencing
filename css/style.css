@@ -1678,3 +1678,9 @@ p { margin-bottom: 1rem; }
 
 /* Thank-you pop-up takes focus itself */
 .order-thanks:focus { outline: none; }
+
+/* Order form: required fields and first / last name */
+.order-req { color: #b91c1c; font-weight: 700; }
+.order-req-note { margin-bottom: 0.75rem; font-size: 0.875rem; color: var(--gray-600); }
+.order-name-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; }
+@media (max-width: 480px) { .order-name-row { grid-template-columns: minmax(0, 1fr); } }

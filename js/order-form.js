@@ -148,8 +148,9 @@
   function updateFulfillment() {
     var picked = form.querySelector('input[name="Pick Up or Delivery"]:checked');
     var delivery = !!picked && picked.value === 'Delivery';
-    dateLabel.textContent = delivery ? 'Delivery Date' : 'Pick-Up Date';
-    dateInput.name = delivery ? 'Delivery Date' : 'Pick-Up Date';
+    var dateName = delivery ? 'Delivery Date' : (picked ? 'Pick-Up Date' : 'Preferred Date');
+    dateLabel.textContent = dateName;
+    dateInput.name = dateName;
     addressGroup.hidden = !delivery;
     addressInput.disabled = !delivery;
     addressInput.required = delivery;
@@ -176,6 +177,14 @@
   dateInput.addEventListener('click', function () {
     try { dateInput.showPicker(); } catch (err) { /* The browser opens its own calendar. */ }
   });
+
+  var phoneInput = document.getElementById('order-phone');
+  function checkPhone() {
+    var digits = phoneInput.value.replace(/\D/g, '').length;
+    phoneInput.setCustomValidity(digits >= 10 ? '' : 'Please enter your phone number with area code.');
+  }
+  phoneInput.addEventListener('input', checkPhone);
+  checkPhone();
 
   form.addEventListener('input', render);
   form.addEventListener('change', function (e) {
@@ -228,6 +237,7 @@
       if (button) button.hidden = false;
     });
     dateInput.setCustomValidity('');
+    checkPhone();
     updateFulfillment();
     updateAllCustom();
     render();
@@ -264,10 +274,6 @@
     }
     var finishes = [];
     finishBoxes.forEach(function (box) { if (box.checked) finishes.push(box.value); });
-    if (!finishes.length) {
-      showError('Please check Blank, Routed or both.', finishBoxes[0]);
-      return;
-    }
     error.hidden = true;
     hidden.value = itemizedList(list);
 
@@ -277,15 +283,30 @@
       if (field.name) data.delete(field.name);
     });
     data.delete('redirect');
-    data.set('Blank or Routed', finishes.join(' and '));
-    data.set(dateInput.name, localDate(dateInput.value).toLocaleDateString('en-US', {
-      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-    }));
+    data.delete('First Name');
+    data.delete('Last Name');
+    data.set('name', document.getElementById('order-first-name').value.trim() + ' ' + document.getElementById('order-last-name').value.trim());
+    if (finishes.length) data.set('Blank or Routed', finishes.join(' and '));
+    var dateText = '';
+    if (dateInput.value) {
+      dateText = localDate(dateInput.value).toLocaleDateString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+      data.set(dateInput.name, dateText);
+    } else {
+      data.delete(dateInput.name);
+    }
+    // Leave unanswered optional fields off the email.
+    if (!String(data.get('message') || '').trim()) data.delete('message');
 
     // Copy for the thank-you pop-up, kept before the form clears.
-    var customerCopy = hidden.value + '\n\n' + data.get('Pick Up or Delivery') + ': ' + data.get(dateInput.name) +
-      (addressInput.disabled ? '' : '\n' + addressInput.value) +
-      '\nBlank or Routed: ' + finishes.join(' and ');
+    var details = [];
+    var method = data.get('Pick Up or Delivery');
+    if (method) details.push('Pick Up or Delivery: ' + method);
+    if (dateText) details.push(dateInput.name + ': ' + dateText);
+    if (!addressInput.disabled) details.push('Delivery Address: ' + addressInput.value.trim());
+    if (finishes.length) details.push('Blank or Routed: ' + finishes.join(' and '));
+    var customerCopy = hidden.value + (details.length ? '\n\n' + details.join('\n') : '');
 
     var buttonText = submitButton.textContent;
     submitButton.disabled = true;
@@ -343,7 +364,7 @@
   var motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (motionOk && window.gsap && window.ScrollTrigger) {
     var page = document.querySelector('main');
-    var items = page.querySelectorAll('.order-guide, .order-group > h2, .order-group-note, .order-subhead, .order-item, .order-summary-box, .order-details > .form-group:not([hidden]), .order-choice, .order-disclaimer, .order-details > button, .order-faq .text-center, .order-faq .faq-item, .order-legal');
+    var items = page.querySelectorAll('.order-guide, .order-group > h2, .order-group-note, .order-subhead, .order-item, .order-summary-box, .order-req-note, .order-name-row, .order-details > .form-group:not([hidden]), .order-choice, .order-disclaimer, .order-details > button, .order-faq .text-center, .order-faq .faq-item, .order-legal');
     var show = function (list) {
       gsap.to(list, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out', overwrite: true, clearProps: 'opacity,transform' });
     };
