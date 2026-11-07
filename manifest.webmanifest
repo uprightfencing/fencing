@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "Upright Fencing Hawaii",
-  "short_name": "Upright",
+  "name": "Upright Fencing Hawaii LLC",
+  "short_name": "Upright Fencing Hawaii LLC",
   "description": "Fence contractor and vinyl fence materials in Kapolei, serving all of Oahu since 1995.",
   "start_url": "/",
   "scope": "/",
@@ -11,14 +11,14 @@
   "lang": "en",
   "categories": ["business"],
   "icons": [
-    { "src": "images/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "images/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "images/icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "images/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "images/icons/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "images/icons/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "images/icons/app-icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "images/icons/app-icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
-    { "name": "Order Materials", "url": "order-materials.html", "icons": [{ "src": "images/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
-    { "name": "Contact Us", "url": "contact.html", "icons": [{ "src": "images/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
-    { "name": "Gallery", "url": "gallery.html", "icons": [{ "src": "images/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+    { "name": "Order Materials", "url": "order-materials.html", "icons": [{ "src": "images/icons/app-icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Contact Us", "url": "contact.html", "icons": [{ "src": "images/icons/app-icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Gallery", "url": "gallery.html", "icons": [{ "src": "images/icons/app-icon-192.png", "sizes": "192x192", "type": "image/png" }] }
   ]
 }
