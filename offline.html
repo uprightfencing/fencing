@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Offline | Upright Fencing Hawaii</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1a1a1a">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background: var(--gray-900); color: var(--gray-300); }
+    .offline { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem 1rem; text-align: center; }
+    .offline img { width: 220px; margin-bottom: 0.5rem; }
+    .offline h1 { color: var(--white); font-size: 1.75rem; }
+    .offline p { max-width: 26rem; }
+    .offline a.phone { color: var(--gold-light); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main class="offline">
+    <img src="images/logo-no-bg.png" alt="Upright Fencing Hawaii LLC" width="480" height="186">
+    <h1>You're offline</h1>
+    <p>This page needs an internet connection. Please reconnect and try again, or call us at <a class="phone" href="tel:8086780331">(808) 678-0331</a>.</p>
+    <button type="button" class="btn btn-primary" onclick="location.reload()">Try Again</button>
+  </main>
+</body>
+</html>

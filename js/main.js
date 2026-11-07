@@ -260,3 +260,70 @@ document.addEventListener('click', function (e) {
     'currency': 'USD'
   });
 });
+
+/* --- Installable app --- */
+(function () {
+  'use strict';
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () { /* The site works without it. */ });
+    });
+  }
+
+  var installed = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  var footer = document.querySelector('.footer-brand');
+  if (installed || !footer) return;
+
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var button = null;
+  var installEvent = null;
+
+  function showIOSSteps() {
+    var dialog = document.querySelector('.app-steps');
+    if (!dialog) {
+      dialog = document.createElement('dialog');
+      dialog.className = 'app-steps';
+      dialog.setAttribute('aria-labelledby', 'app-steps-title');
+      dialog.innerHTML =
+        '<h2 id="app-steps-title">Add Upright Fencing to your home screen</h2>' +
+        '<ol><li>Tap the <strong>Share</strong> button in your browser.</li>' +
+        '<li>Choose <strong>Add to Home Screen</strong>. You may need to scroll or tap <strong>More</strong> to find it.</li>' +
+        '<li>Tap <strong>Add</strong>.</li></ol>' +
+        '<button type="button" class="btn btn-primary">Close</button>';
+      dialog.querySelector('button').addEventListener('click', function () { dialog.close(); });
+      document.body.appendChild(dialog);
+    }
+    dialog.showModal();
+  }
+
+  function showButton() {
+    if (button) return;
+    button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'app-install-btn';
+    button.textContent = 'Get the App';
+    button.addEventListener('click', function () {
+      if (installEvent) {
+        installEvent.prompt();
+        installEvent = null;
+      } else if (isIOS) {
+        showIOSSteps();
+      }
+    });
+    footer.appendChild(button);
+  }
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    installEvent = e;
+    showButton();
+  });
+
+  window.addEventListener('appinstalled', function () {
+    if (button) button.remove();
+  });
+
+  if (isIOS) showButton();
+})();

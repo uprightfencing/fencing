@@ -1688,3 +1688,12 @@ p { margin-bottom: 1rem; }
 /* Order form: Blank or Routed required for posts and rails */
 .order-finish-required { margin-top: 0.3rem; font-size: 0.875rem; font-weight: 600; color: #b91c1c; }
 .order-finish-required[hidden], .order-req[hidden] { display: none; }
+
+/* Installable app */
+.app-install-btn { display: block; margin-top: 1rem; padding: 0.5rem 1.1rem; font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; color: var(--gold-light); background: transparent; border: 1px solid var(--gold-light); border-radius: var(--radius); cursor: pointer; }
+.app-install-btn:hover, .app-install-btn:focus-visible { color: var(--black); background: var(--gold-light); }
+.app-steps { margin: auto; max-width: min(26rem, calc(100vw - 2rem)); padding: 1.5rem; color: var(--gray-800); border: 0; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.app-steps::backdrop { background: rgba(0,0,0,0.6); }
+.app-steps h2 { margin-bottom: 0.75rem; font-size: 1.25rem; }
+.app-steps ol { margin: 0 0 1.25rem 1.25rem; list-style: decimal; }
+.app-steps li { margin-bottom: 0.5rem; }
