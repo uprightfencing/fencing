@@ -474,7 +474,7 @@ p { margin-bottom: 1rem; }
   max-width: 700px;
 }
 
-.hero-logo {  display: block;  max-width: 360px;  width: 100%;  height: auto;  margin: 0 auto 1.5rem;  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));}@media (max-width: 768px) {  .hero-logo {    max-width: 260px;  }}
+.hero-logo {  display: block;  max-width: 400px;  width: 100%;  height: auto;  margin: 0 auto 1.5rem;  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));}@media (max-width: 768px) {  .hero-logo {    max-width: 260px;  }}
 .hero h1 {
   color: var(--white);
   margin-bottom: 1.25rem;
